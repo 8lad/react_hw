@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.App {
+  padding-top: 50px;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.App__title {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}

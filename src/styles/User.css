@@ -1,0 +1,29 @@
+.User {
+  flex-basis: 49%;
+  padding: 10px;
+  border: 3px solid olivedrab;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  transition: all 0.5s;
+}
+
+.User:hover {
+  background-color: lightgrey;
+}
+
+.User__img {
+  flex-basis: 10%;
+}
+
+.User__box {
+  padding-left: 20px;
+}
+
+.User h1 {
+  margin-bottom: 10px;
+}
+
+.User__field {
+  margin-bottom: 5px;
+}
