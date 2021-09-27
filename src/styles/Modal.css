@@ -12,15 +12,16 @@
   bottom: 0;
 }
 .Modal__wrapper {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   max-width: 600px;
+  max-height: 100%;
   padding: 15px;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 3%;
   margin-left: auto;
   margin-right: auto;
-  transform: translateY(-50%);
   background-color: #fff;
   border: 3px solid olivedrab;
   z-index: 4;

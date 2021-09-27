@@ -13,7 +13,7 @@ const User = ({ user, users, ...props }) => {
         let mainUser = currentUser[0];
         document.querySelector(props[0]).classList.add(props[2]);
         let modalContainer = document.querySelector(props[1]);
-        console.log(mainUser);
+        modalContainer.innerHTML = "";
         for (let key in mainUser) {
           let singleParam = document.createElement("div");
           if (typeof mainUser[key] === "object") {

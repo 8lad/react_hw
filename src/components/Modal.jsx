@@ -6,7 +6,6 @@ const Modal = ({ title, extraClassName }) => {
       className="Modal"
       onClick={(event) => {
         event.target.classList.remove(extraClassName);
-        document.querySelector(".Modal__box").innerHTML = "";
       }}
     >
       <div className="Modal__wrapper">
@@ -16,7 +15,6 @@ const Modal = ({ title, extraClassName }) => {
             event.target.parentElement.parentElement.classList.remove(
               extraClassName
             );
-            document.querySelector(".Modal__box").innerHTML = "";
           }}
         >
           <div className="delete__line"></div>
