@@ -1,7 +1,25 @@
 button {
   padding: 10px 20px;
-  font-size: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+button:active {
+  box-shadow: inset 5px 5px 15px 5px rgba(0, 0, 0, 0.37);
+}
+.start {
+  background-color: #00b767;
+}
+.stop {
+  background-color: #f84747;
+}
+.reset {
+  background-color: #ffa952;
+}
+
+.continue {
+  background-color: #8547d9;
 }
