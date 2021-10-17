@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Step1 from "./Step1";
@@ -10,6 +10,14 @@ import Result from "./Result";
 function App() {
   return (
     <>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          hangleChangeBgColor();
+        }}
+      >
+        Change the background color
+      </button>
       <Header />
       <Router>
         <Switch>
