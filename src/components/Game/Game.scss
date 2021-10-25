@@ -1,0 +1,23 @@
+.game {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.game-info {
+  margin: 15px;
+  color: #ffffff;
+}
+.disabled {
+  .btn {
+    cursor: default;
+    &:hover {
+      top: 0;
+      background: #ffffff;
+      color: #e5dc15;
+      box-shadow: 0 12px #c2bb11, 0 18px rgba(0, 0, 0, 0.4);
+    }
+  }
+}

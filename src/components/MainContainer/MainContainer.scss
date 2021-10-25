@@ -1,0 +1,13 @@
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  h1 {
+    color: #fff;
+    font-family: sans-serif;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid yellow;
+  }
+}
