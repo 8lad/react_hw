@@ -1,73 +1,45 @@
-import React, { useState, useMemo } from "react";
-import { userData } from "./userData";
+import { useMemo, useState } from "react";
+import "./App.scss";
 import Input from "./components/UI/Input/Input";
-import Label from "./components/UI/Lable/Label";
-import Select from "./components/UI/Select/Select";
-import "./styles/App.css";
-import Form from "./components/Form";
-import UserList from "./components/UserList";
-import Modal from "./components/Modal";
+import UserCard from "./components/UserCard/UserCard";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
+import { useAppStore } from "./context";
+import Winner from "./components/Winner/Winner";
 function App() {
-  const [users, setUsers] = useState([...userData]);
-  const [sort, setSort] = useState("");
-  const [find, setFind] = useState("");
-  const mainModalBox = ".Modal";
-  const modalBoxContainer = ".Modal__box";
-  const activeMidificator = "active";
-
-  const findByName = useMemo(() => {
-    return users.filter((user) =>
-      user["name"].toLowerCase().includes(find.toLowerCase())
-    );
-  }, [find, users]);
-  const addNewUser = (newUser) => {
-    return setUsers([...users, newUser]);
-  };
-
-  function filterByAge(status, arr) {
-    if (status === "up") {
-      return arr.sort((a, b) => +a["age"] - +b["age"]);
-    }
-    if (status === "down") {
-      return arr.sort((a, b) => +b["age"] - +a["age"]);
-    }
-    return arr;
-  }
-
+  const [searching, setSearching] = useState("");
+  const [{ participants }] = useAppStore();
+  const currentParticipants = useMemo(
+    () =>
+      participants.filter(
+        (item) =>
+          item.firstName.toLowerCase().includes(searching.toLowerCase()) ||
+          item.id.includes(searching)
+      ),
+    [participants, searching]
+  );
   return (
     <div className="App">
-      <div className="header">
-        <h1>Search and filter </h1>
-        <Label labelText="Search by name:" htmlFor="searchname" />
+      <main>
         <Input
-          id="searchname"
-          type="text"
-          value={find}
-          onChange={(event) => setFind(event.target.value)}
-        />
-        <Label labelText="Filter by age:" htmlFor="agefilter" />
-        <Select
-          defaultValue="Default"
-          options={[
-            { value: "normal", title: "Normal" },
-            { value: "down", title: "From highest to lowest" },
-            { value: "up", title: "From lowest to highest" },
-          ]}
-          id="agefilter"
-          value={sort}
-          onChange={(event) => {
-            setSort(event.target.value);
-            filterByAge(sort, findByName);
+          placeholder={"Enter paticipiant name..."}
+          id={"searching"}
+          onChange={(e) => {
+            setSearching(e.target.value);
           }}
+          value={searching}
         />
-      </div>
-      <Form formTitle="Add new user" createNew={addNewUser} />
-      <h1 className="App__title">The users list</h1>
-      <UserList
-        users={findByName}
-        props={[mainModalBox, modalBoxContainer, activeMidificator]}
-      />
-      <Modal title="Full information about the user" extraClassName="active" />
+        {currentParticipants.map((participant) => (
+          <UserCard
+            text={"Delete"}
+            participant={participant}
+            key={participant.id}
+          />
+        ))}
+      </main>
+      <aside>
+        <RegistrationForm title="Registration user" />
+        <Winner />
+      </aside>
     </div>
   );
 }

@@ -1,9 +1,20 @@
 import React from "react";
-import "./Input.css";
-const Input = ({ ...props }) => {
+import "./Input.scss";
+const Input = ({ labelText, id, placeholder, onChange, value }) => {
   return (
     <>
-      <input {...props} />
+      <label className="regular-label" htmlFor={id}>
+        {labelText}
+      </label>
+      <input
+        onChange={onChange}
+        className="regular-input"
+        type="text"
+        name={id}
+        id={id}
+        value={value}
+        placeholder={placeholder}
+      />
     </>
   );
 };

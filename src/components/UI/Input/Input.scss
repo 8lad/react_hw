@@ -1,0 +1,14 @@
+.regular-input {
+  width: 100%;
+  border: 2px solid #73b12f;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  &:focus {
+    border: 2px solid #73b12f;
+  }
+}
+.regular-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+}
