@@ -1,0 +1,23 @@
+.single-app {
+  padding: 40px 25px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  main,
+  aside {
+    width: 100%;
+    padding: 10px;
+  }
+  main {
+    max-width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  aside {
+    max-width: 35%;
+  }
+}
