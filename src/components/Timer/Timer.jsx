@@ -7,9 +7,9 @@ import { useAppStore } from "../../context";
 import { showTimer, addNewParticipant } from "../../actions/";
 import "./Timer.scss";
 
-function Timer({ firstName, secondName, clearInputs }) {
+function Timer({ firstName, secondName, clearInputs, competitionId, isTimer }) {
   const [start, setStart] = useState(false);
-  const [{ isTimer }, dispatch] = useAppStore();
+  const [, dispatch] = useAppStore();
   const [disableButton, setDisableButton] = useState(false);
   const [disableReset, setDisableReset] = useState(true);
   const [disableSave, setDisableSave] = useState(true);
@@ -26,7 +26,7 @@ function Timer({ firstName, secondName, clearInputs }) {
 
   const clearAndSave = () => {
     setStart(false);
-    dispatch(showTimer());
+    dispatch(showTimer(competitionId));
     setDisableButton(false);
     setDisableReset(true);
     setDisableSave(true);
@@ -90,7 +90,7 @@ function Timer({ firstName, secondName, clearInputs }) {
         disabled={disableSave}
         onClick={(e) => {
           e.preventDefault();
-          dispatch(addNewParticipant(currentParticipant));
+          dispatch(addNewParticipant(currentParticipant, competitionId));
           clearAndSave();
         }}
       />

@@ -5,7 +5,7 @@ import Timer from "../Timer/Timer";
 import { useAppStore } from "../../context";
 import { showTimer } from "../../actions/";
 import "./RegistrationForm.scss";
-const RegistrationForm = ({ title }) => {
+const RegistrationForm = ({ title, competitionId, isTimer }) => {
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
   const [, dispatch] = useAppStore();
@@ -38,7 +38,7 @@ const RegistrationForm = ({ title }) => {
           onClick={(e) => {
             e.preventDefault();
             if (firstName && secondName) {
-              dispatch(showTimer());
+              dispatch(showTimer(competitionId));
             }
           }}
         />
@@ -47,6 +47,8 @@ const RegistrationForm = ({ title }) => {
         firstName={firstName}
         secondName={secondName}
         clearInputs={clearInputs}
+        isTimer={isTimer}
+        competitionId={competitionId}
       />
     </>
   );

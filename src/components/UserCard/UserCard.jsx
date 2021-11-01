@@ -4,7 +4,7 @@ import { deleteParticipant } from "../../actions";
 import "./UserCard.scss";
 import Button from "../UI/Button/Button";
 
-const UserCard = ({ participant, text }) => {
+const UserCard = ({ participant, text, competitionId }) => {
   const [, dispatch] = useAppStore();
   const { id, firstName, secondName, timeForReading } = participant;
   return (
@@ -17,7 +17,7 @@ const UserCard = ({ participant, text }) => {
         <Button
           className="main-button"
           text={text}
-          onClick={() => dispatch(deleteParticipant(id))}
+          onClick={() => dispatch(deleteParticipant(competitionId, id))}
         />
       </div>
     </div>

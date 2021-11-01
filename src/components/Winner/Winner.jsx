@@ -2,11 +2,13 @@ import React, { useState, useMemo } from "react";
 import Button from "../UI/Button/Button";
 import { useAppStore } from "../../context";
 import { findWinner } from "../../actions";
+import { useHistory } from "react-router";
 import "./Winner.scss";
-const Winner = () => {
+const Winner = ({ participants, winner, competitionId }) => {
   const [isWinner, setIsWinner] = useState(false);
-  const [{ participants, winner }, dispatch] = useAppStore();
+  const [, dispatch] = useAppStore();
   const currentAmount = useMemo(() => participants.length, [participants]);
+  const history = useHistory();
   return (
     <div className="winner">
       {isWinner ? (
@@ -27,7 +29,8 @@ const Winner = () => {
             text="Show winner"
             onClick={() => {
               setIsWinner((isWinner) => !isWinner);
-              dispatch(findWinner());
+              dispatch(findWinner(competitionId));
+              history.push("/");
             }}
           />
         </>

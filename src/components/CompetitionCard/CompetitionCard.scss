@@ -1,0 +1,15 @@
+.competition-card {
+  width: 33%;
+  padding: 10px;
+  &-container {
+    padding: 10px;
+    border: 1px solid #000;
+    transition: all 0.5s;
+    &:hover {
+      background-color: #ff99ff;
+    }
+  }
+  &-field {
+    padding: 5px;
+  }
+}
