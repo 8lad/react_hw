@@ -39,11 +39,6 @@ export const appReducer = (state = initialState, action) => {
           return item;
         }),
       };
-    // case FIND_WINNER:
-    //   return {
-    //     ...state,
-    //     winner: findTheWinner(state.participants),
-    //   };
     case FIND_WINNER:
       return {
         competitions: state.competitions.map((item) => {
