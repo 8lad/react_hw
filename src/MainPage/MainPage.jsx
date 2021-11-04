@@ -9,11 +9,8 @@ function MainPage() {
   const [{ competitions }] = useAppStore();
   const currentCompetitions = useMemo(
     () =>
-      competitions.filter(
-        (item) =>
-          item.competitionName
-            .toLowerCase()
-            .includes(searching.toLowerCase()) || item.id.includes(searching)
+      competitions.filter((item) =>
+        item.competitionName.toLowerCase().includes(searching.toLowerCase())
       ),
     [competitions, searching]
   );
