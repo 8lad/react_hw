@@ -26,7 +26,7 @@ function App() {
     return () => {
       clearInterval(countingTime);
     };
-  });
+  }, []);
 
   function playAudio() {
     audio.play();
